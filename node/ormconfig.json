@@ -1,0 +1,18 @@
+{
+  "type": "mariadb",
+  "host": "db", // DBホスト名
+  "port": 5432,
+  "username": "foo", // DBユーザ名
+  "password": "bar", // DBパスワード
+  "database": "test_db", // DB名
+  "synchronize": false,
+  "logging": false,
+  "entities": ["src/models/**/*.ts"],
+  "migrations": ["src/db/migrations/**/*.ts"],
+  "subscribers": ["src/db/subscribers/**/*.ts"],
+  "cli": {
+    "entitiesDir": "src/entities",
+    "migrationsDir": "src/db/migrations",
+    "subscribersDir": "src/db/subscribers"
+  }
+}

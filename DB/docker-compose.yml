@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mariadb:
+    container_name: typeORM_test
+    image: mariadb/server:10.4
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./init_script:/docker-entrypoint-initdb.d
+      - ./conf_file:/etc/mysql/conf.d
+    privileged: true
+    command: /sbin/init
+    environment:
+      MARIADB_ROOT_PASSWORD: database
+      MARIADB_ROOT_HOST: localhost
+      MARIADB_DATABASE: tormtest
+      MARIADB_USER: testuser
+      MARIADB_PASSWORD: testpass

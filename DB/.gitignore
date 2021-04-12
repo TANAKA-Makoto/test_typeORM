@@ -1,0 +1,7 @@
+# Specify filepatterns you want git to ignore.
+sftp-config.json
+connectSQL.sh
+ssh.sh
+startup-makoto.sh
+data/*
+init_script/*
