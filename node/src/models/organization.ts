@@ -7,12 +7,12 @@ export class Organization extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     @OneToMany(type => Users, Users => Users['organization-id'])
-    readonly id: number;
+    readonly 'id': number;
 
     @Column({ type: 'datetime', nullable: false})
     readonly 'regist-date': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
-    name: string;
+    'name': string;
 
 }

@@ -15,13 +15,13 @@ export class Cost_map extends BaseEntity {
     readonly 'map-id': number;
 
     @PrimaryGeneratedColumn()
-    version:number
+    'version':number
 
     @Column({ type: 'varchar', length: 128 ,nullable: false})
-    png_path: string;
+    'png_path': string;
 
     @Column({ type: 'varchar', length: 128 ,nullable: false})
-    YAML_path: string;
+    'YAML_path': string;
 
     @Column({ type: 'datetime', nullable: false})
     readonly 'regist-date': string;

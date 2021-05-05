@@ -12,15 +12,15 @@ export class Users extends BaseEntity {
     @PrimaryGeneratedColumn()
     @OneToMany(type => Facility, Facility => Facility['owner-id'])
     @OneToMany(type => Facility, Facility => Facility['regist-user-id'])
-    readonly id: number;
+    readonly 'id': number;
 
     @Column({ type: 'datetime', nullable: false})
     readonly 'regist-date': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
-    name: string;
+    'name': string;
 
-    @Column({ type: 'int', length: 64 ,nullable: false ,unsigned: true })
+    @Column({ type: 'int' ,nullable: false ,unsigned: true })
     readonly 'regist-user-id': number;
 
 

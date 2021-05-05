@@ -1,10 +1,10 @@
 {
   "type": "mariadb",
-  "host": "0.0.0.0", // DBホスト名
+  "host": "0.0.0.0",
   "port": 53306,
-  "username": "testuser", // DBユーザ名
-  "password": "testpass", // DBパスワード
-  "database": "typeormtest", // DB名
+  "username": "testuser",
+  "password": "testpass",
+  "database": "typeormtest",
   "synchronize": false,
   "logging": false,
   "entities": ["src/models/**/*.ts"],

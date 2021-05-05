@@ -7,13 +7,13 @@ import {Users} from "./users";
 export class Facility extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    readonly id: number;
+    readonly 'id': number;
 
     @Column({ type: 'datetime', nullable: false})
     readonly 'regist-date': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
-    name: string;
+    'name': string;
 
     @ManyToOne(type=>Users, {
         cascade: true
