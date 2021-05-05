@@ -11,28 +11,31 @@ import {Maps} from "./maps";
 export class Slam_map extends BaseEntity {
 
     @PrimaryColumn()
-    @ManyToOne(()=>Maps)
-    readonly 'map-id': number;
+    readonly 'mapId': number;
 
-    @PrimaryGeneratedColumn()
+    @ManyToOne(()=>Maps)
+    @JoinColumn()
+    readonly 'map': Maps;
+
+    @PrimaryColumn()
     'version':number
 
     @Column({ type: 'varchar', length: 128 ,nullable: false})
-    'png_path': string;
+    'pngPath': string;
 
     @Column({ type: 'varchar', length: 128 ,nullable: false})
-    'YAML_path': string;
+    'YAMLPath': string;
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'regist-user-id':number;
+    readonly 'registUser':number;
 
     @Column(({ type: 'bit',nullable: false}))
-    'delete-flg':boolean = false
+    'deleteFlg':boolean = false
 
 }

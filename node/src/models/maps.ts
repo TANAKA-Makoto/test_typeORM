@@ -10,27 +10,27 @@ export class Maps extends BaseEntity {
     readonly 'id': number;
 
     @Column({nullable: false})
-    'fasicilty-id':number
+    'fasiciltyId':number
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
     'name': string;
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'regist-user-id':number;
+    readonly 'registUser':number;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'owner-id':number;
+    readonly 'owner':number;
 
     @Column(({ type: 'bit',nullable: false}))
-    'delete-flg':boolean = false
+    'deleteFlg':boolean = false
 
 }

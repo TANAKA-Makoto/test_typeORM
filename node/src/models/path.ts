@@ -9,8 +9,8 @@ import {Waypoint} from "./waypoint";
 
 
 @Entity()
-@Check('(`start-point-id` IS NOT NULL) OR (`start-point` IS NOT NULL)')
-@Check('(`goal-point-id` IS NOT NULL) OR (`goal-point` IS NOT NULL)')
+@Check('(`startPointId` IS NOT NULL) OR (`startPointPos` IS NOT NULL)')
+@Check('(`goalPointId` IS NOT NULL) OR (`goalPointPos` IS NOT NULL)')
 export class Path extends BaseEntity {
     @PrimaryGeneratedColumn()
     readonly 'id': number;
@@ -20,29 +20,29 @@ export class Path extends BaseEntity {
 
     @ManyToOne(()=>Maps)
     @JoinColumn({
-        name: "cat_id",
-        referencedColumnName: "name"
+        name: "map",
+        referencedColumnName: "id"
     })
-    readonly 'map-id': number;
+    readonly 'map': number;
 
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'regist-user-id':number;
+    readonly 'registUser':number;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'owner-id':number;
+    readonly 'owner':number;
 
     @Column(({ type: 'bit',nullable: false}))
-    'delete-flg':boolean = false
+    'deleteFlg':boolean = false
 
     @Column({ type: 'varchar', length: 128 ,nullable: false})
     'url':string
@@ -51,16 +51,16 @@ export class Path extends BaseEntity {
     @Column({type:'int'})
     @ManyToOne(()=>Waypoint)
     @JoinColumn()
-    'start-point-id':Waypoint["id"]
+    'startPoint':Waypoint["id"]
 
     @Column({type:'int'})
     @ManyToOne(()=>Waypoint)
     @JoinColumn()
-    'goal-point-id':Waypoint["id"]
+    'goalPoint':Waypoint["id"]
 
     @Column({type:'int'})
-    'start-point':number
+    'startPointPos':number
 
     @Column({type:'int'})
-    'goal-point':number
+    'goalPointPos':number
 }

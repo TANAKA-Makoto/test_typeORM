@@ -18,35 +18,35 @@ export class Waypoint extends BaseEntity {
 
     @ManyToOne(()=>Maps)
     @JoinColumn({
-        name: "cat_id",
-        referencedColumnName: "name"
+        name: "map",
+        referencedColumnName: "id"
     })
-    readonly 'map-id': number;
+    readonly 'map': number;
 
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'regist-user-id':number;
+    readonly 'registUser':number;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'owner-id':number;
+    readonly 'owner':number;
 
     @Column(({ type: 'bit',nullable: false}))
-    'delete-flg':boolean = false
+    'deleteFlg':boolean = false
 
     @Column({type:'int', nullable: false})
-    'x-point':number;
+    'xPoint':number;
     @Column({type:'int', nullable: false})
-    'y-point':number;
+    'yPoint':number;
     @Column({type:'int', nullable: false, })
-    'z-point':number = 0;
+    'zPoint':number = 0;
 
 }

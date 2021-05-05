@@ -10,7 +10,7 @@ export class Facility extends BaseEntity {
     readonly 'id': number;
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
     'name': string;
@@ -19,12 +19,12 @@ export class Facility extends BaseEntity {
         cascade: true
     })
     @JoinColumn()
-    readonly 'owner-id':number;
+    readonly 'owner':number;
 
     @ManyToOne(type=>Users, {
         cascade: true
     })
     @JoinColumn()
-    readonly 'regist-user-id':number;
+    readonly 'registUser':number;
 
 }

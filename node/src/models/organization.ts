@@ -6,11 +6,11 @@ import {Users} from "./users";
 export class Organization extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    @OneToMany(type => Users, Users => Users['organization-id'])
+    @OneToMany(type => Users, Users => Users['organization'])
     readonly 'id': number;
 
     @Column({ type: 'datetime', nullable: false})
-    readonly 'regist-date': string;
+    readonly 'registDate': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
     'name': string;
