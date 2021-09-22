@@ -12,8 +12,8 @@ import {Waypoint} from "./waypoint";
 @Check('(`startPointId` IS NOT NULL) OR (`startPointPos` IS NOT NULL)')
 @Check('(`goalPointId` IS NOT NULL) OR (`goalPointPos` IS NOT NULL)')
 export class Path extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    readonly 'id': number;
+    @PrimaryGeneratedColumn("uuid")
+    readonly 'id': string;
 
     @Column({ type: 'varchar', length: 64 ,nullable: false})
     'name': string;
