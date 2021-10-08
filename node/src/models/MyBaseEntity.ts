@@ -2,25 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColum
 
 import {Users} from "./users";
 
-
-@Entity()
-export class Maps extends BaseEntity {
-
-    @PrimaryGeneratedColumn()
-    readonly 'id': number;
-
-    @Column({nullable: false})
-    'fasiciltyId':number
-
-    @Column({nullable:false})
-    'floor':number;
-
-    @Column({ type: 'varchar', length: 64 ,nullable: false})
-    'name': string;
-
-    @Column({ type: 'varchar', length: 128, nullable: false})
-    'imagePath':string;
-
+export class MyBaseEntity extends BaseEntity {
     @Column({ type: 'datetime', nullable: false})
     readonly 'registDate': string;
 
@@ -38,5 +20,4 @@ export class Maps extends BaseEntity {
 
     @Column(({ type: 'bit',nullable: false}))
     'deleteFlg':boolean = false
-
 }
