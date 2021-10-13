@@ -3,8 +3,8 @@ import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColum
 import {Users} from "./users";
 
 
-@Entity()
-export class Maps extends BaseEntity {
+@Entity('Maps')
+export class Map extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     readonly 'id': number;
